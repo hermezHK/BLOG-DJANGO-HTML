@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Notas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+      <div
+        class="max-w-md mx-auto bg-white shadow-lg rounded-lg md:max-w-2xl mb-6"
+      >
+        <div class="md:flex">
+          <div class="w-full p-4">
+            <h2 class="text-2xl font-bold text-gray-800">Lista de Notas</h2>
+            <a
+              href="{% url 'crear_notas' %}"
+              class="mt-4 bg-blue-500 text-white p-2 rounded inline-block"
+              >Crear Nueva Nota</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        {% for nota in notas %}
+        <div class="bg-white shadow-lg rounded-lg mb-6 p-4">
+          <div class="flex">
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-blue-500">{{ nota.titulo }}</h3>
+              <p class="text-gray-600">{{ nota.contenido }}</p>
+              <p class="text-sm text-gray-400">Creado en: {{ nota.creado }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
