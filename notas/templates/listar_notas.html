@@ -6,18 +6,20 @@
     <title>Lista de Notas</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-gray-900">
     <div class="container mx-auto p-8">
       <div
         class="max-w-md mx-auto bg-white shadow-lg rounded-lg md:max-w-2xl mb-6"
       >
         <div class="md:flex">
           <div class="w-full p-4">
-            <h2 class="text-2xl font-bold text-gray-800">Lista de Notas</h2>
+            <h2 class="text-2xl font-bold text-gray-800 flex justify-center">
+              Blog de Notas
+            </h2>
             <a
-              href="{% url 'crear_notas' %}"
-              class="mt-4 bg-blue-500 text-white p-2 rounded inline-block"
-              >Crear Nueva Nota</a
+              href="{% url 'crear_nota' %}"
+              class="mt-4 bg-blue-500 hover:bg-sky-700 text-white p-2 rounded inline-block"
+              >Crear Nota</a
             >
           </div>
         </div>
@@ -28,10 +30,22 @@
         <div class="bg-white shadow-lg rounded-lg mb-6 p-4">
           <div class="flex">
             <div class="flex-1">
-              <h3 class="text-xl font-bold text-blue-500">{{ nota.titulo }}</h3>
-              <p class="text-gray-600">{{ nota.contenido }}</p>
+              <h3 class="text-xl font-bold text-neutral-950">
+                {{ nota.titulo }}
+              </h3>
+              <p class="text-violet-800">{{ nota.contenido }}</p>
               <p class="text-sm text-gray-400">Creado en: {{ nota.creado }}</p>
             </div>
+          </div>
+          <div class="flex justify-end mt-4">
+            <a
+              href="{% url 'actualizar_nota' nota.pk %}"
+              class="text-yellow-500 mr-4"
+              >Editar</a
+            >
+            <a href="{% url 'borrar_nota' nota.pk %}" class="text-red-500"
+              >Eliminar</a
+            >
           </div>
         </div>
         {% endfor %}

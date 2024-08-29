@@ -77,7 +77,8 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', #Conección contenedor-docker postgresql port 5432
+        # Conección contenedor-docker postgresql port 5432
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'blog',
         'USER': 'hk',
         'PASSWORD': '123',
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'  # hora - local actualizado para lasnotas
 
 USE_I18N = True
 
